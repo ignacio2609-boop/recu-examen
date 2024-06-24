@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="container-fluid row">
+    <div class="col-4 mx-auto">
+        <app-form (formEvent)="addMeal($event)"></app-form>
+    </div>
+    <div class="col-4 mx-auto">
+        <div class="table-responsive">
+            <table class="table justify-content-center" *ngFor ="let meal of meals" id="{{meal.id}}">
+                <thead>
+                    <tr>
+                        <th scope="col">{{meal.name}}{{meal.cal}} cal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle">
+                            {{meal.date}}
+                        </td>
+                        <td class="align-middle">
+                            <div class="container-fluid">
+                                <div class="row justify-content-end">
+                                    <div class="col">
+                                        <button type="button" [disabled]="this.disabledButtons[meal.id]" [ngClass]="buttonClasses[meal.id] === 'btn btn-success btn-sm' ? 'btn btn-success btn-sm' : 'btn btn-outline-success btn-sm'" (click)="like(meal)" id="like">Like</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" [disabled]="this.disabledButtons[meal.id]" [ngClass]="buttonClasses[meal.id] === 'btn btn-danger btn-sm' ? 'btn btn-danger btn-sm' : 'btn btn-outline-danger btn-sm'" (click)="dislike(meal)" id="dislike">Dislike</button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn btn-outline-secondary btn-sm" type="button" (click)="deleteMeal(meal)" id="delete">Eliminar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<footer class="bg-body-tertiary text-center text-lg-start fixed-bottom">
+    <app-footer></app-footer>
+</footer>

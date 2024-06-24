@@ -1,0 +1,17 @@
+<h1 class="display-6 p-1">Log Calorie intake</h1>
+<form [formGroup]="mealForm">
+    <div class="col">
+        <div class="m-1">
+            <label for="name" class="form-label">Meal</label>
+            <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter meal name">
+        </div>
+        <div class="m-1">
+            <label for="cal" class="form-label">Calories</label>
+            <input formControlName="cal" type="text" class="form-control" id="cal" placeholder="Enter calories">
+        </div>
+        <div class="d-grid gap-2 col mx-auto m-3">
+            <button class="btn btn-outline-dark" type="button" (click)="sendForm()">Add entry</button>
+        </div>
+    </div>
+</form>
+
